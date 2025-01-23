@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body{
+            background-color: #8B6FF7;
+            box-sizing: border-box;
+        }
+        .Container{
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-around;
+            align-items: center;
+            align-content: center;
+            margin: 200px auto;
+            border: 2px solid white;
+            border-radius: 10px;
+            max-width: 600px;
+            width: 80%;
+            padding: 30px;
+            color: white;
+            background-color: HSLA(0, 0%, 100%, 0.1);    
+        }
+        h1, h3{
+            text-align: center;
+            width: 100%;
+        }
+        h3{
+            margin-top: 0px;
+            margin-bottom: 10px;
+        }
+        .Options{
+            border: 1px solid white;
+            border-radius: 5px;
+            padding: 8px;
+            width: 29%;
+            text-align: center;
+        }
+        .Options:hover{
+            transition: 200ms;
+            cursor: pointer;
+            background-color: HSLA(0, 0%, 100%, 0.3);
+        }
+        a{
+            text-decoration: none;
+            color: white;
+            margin-top: 20px;
+            text-align: center;   
+        }
+        form{
+            display: none;
+            flex-flow: wrap row;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+        form h1{
+            margin-bottom: 3px;
+        }
+        form a{
+            width: 100%;
+        }
+        input{
+            margin-top: 5px;
+            text-align: center;
+            border: 1px solid white;
+            outline: 0;
+            border-radius: 10px;
+            padding: 12px;
+            width: 50%;
+        }
+        button{
+            width: 50%;
+            margin-top: 5px;
+            padding: 10px;
+            border-radius: 12px;
+            border: 1px solid white;
+        }
+        .List{
+            display: none;
+            flex-flow: row wrap;
+            justify-content: center;
+            align-items: center;
+            align-content: center;
+            margin-inline: auto;
+            width: 100%;
+        }
+        .Alerts{
+            position: absolute;
+            display: none;
+            opacity: 0;
+            top: 30%;
+            left: 50%;
+            padding: 5px;
+            background-color: HSLA(0, 0%, 100%, 0.1);
+            border: 1px solid white;
+            color: white;
+            border-radius: 10px;
+        }
+        button:hover{
+            transition: 250ms;
+            cursor: pointer;
+            background-color: HSLA(0, 0%, 100%, 0.3);
+            color: white;
+        }
+        a:hover{
+            cursor: pointer;
+        }
+    </style>
+    <title>Main</title>
+</head>
+<body id="body">
+    <div class="Alerts" id="Alerts">
+        <h1 id="Alerts-Content">Alerta!</h1>
+    </div>
+    <div class="Container" id="Container">
+        <h1 id="Title">Olá! <%= User.Username %>, o que deseja? </h1>
+        <h3 id="Total">Total: <%= User.Contas %></h3>
+        <div class="Options" id="Add">Adicionar</div>
+        <div class="Options" id="List">Listar</div>
+        <div class="Options" id="Remove">Remover</div>
+        <form id="Form">
+            <h1>Digite as informações!</h1>
+            <input type="text" placeholder="Digite a descrição da conta" id="Descricao" autocomplete="off" required>
+            <input type="text" placeholder="Digite o valor da conta" id="Valor" autocomplete="off" required>
+            <button id="Button">Adicionar</button>
+            <a id="Cancel">Cancelar</a>
+        </form>
+        <div class="List" id="ListDiv">
+            <h3>teste</h3>
+            <a id="CancelList">Cancelar</a>
+        </div>
+        <a href="Forms.html">Voltar</a>
+    </div>
+    <script src="ScriptsMain.js"></script>
+</body>
+</html>

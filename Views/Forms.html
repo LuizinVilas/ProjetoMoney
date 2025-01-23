@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="StylesForms.css">
+    <title>Formularío</title>
+</head>
+<body id="Body">
+    <div class="Alerts" id="Alerts">
+        <h1 id="Alerts-Content">Alerta!</h1>
+    </div>
+    <div class="Content">
+        <form method="post" class="Container" id="Form">
+            <div class="Login-Container">
+                <h1>Login</h1>
+                <input type="text" placeholder="Digite o Teu Usúario" class="Login-Camps" id="Login-User" required autocomplete="off">
+                <input type="password" placeholder="Digite a Sua Senha" class="Login-Camps" id="Login-Password" required autocomplete="off">
+                <button>Logar</button>
+                <div class="Acess"><a href="#">Acessar Usuários</a></div>
+            </div>
+            <div class="Sign-Container">
+                <h1>Cadastrar</h1>
+                <input type="text" placeholder="Digite o Teu Usuário" class="Sign-Camps" disabled="true" id="Sign-User" required autocomplete="off">
+                <input type="text" placeholder="Digite a Sua Senha" class="Sign-Camps" disabled="true" id="Sign-Password" required autocomplete="off">
+                <input type="password" placeholder="Confirme a Sua Senha" class="Sign-Camps" disabled="true" id="Confirm-Sign-Password" required autocomplete="off">
+                <button>Criar Conta</button>
+            </div>   
+        </form>
+        <div class="Transitioner" id="Div-Transition">
+        <h1 id="Title">Não Possui Uma Conta?</h1>
+            <h3 id="Subtitle">Cadastre-Se!</h3>
+            <button id="Mudar">Criar Conta</button>
+        </div>
+    </div>
+    <script src="ScriptsForms.js"></script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+Create database FetchAPI;
+
+Create Table Users(
+	Id int not null auto_increment,
+	Username varchar(100) not null,
+	Password varchar(50) not null,
+	Constraint Pk_Id primary key (Id)
+);
+
+Create table Contas(
+	Id int not null auto_increment,
+	Valor float not null,
+	Descricao varchar(255) not null,
+	User_Id int not null,
+	Constraint Pk_Id primary key (Id),
+	Constraint Fk_User_Id foreign key (User_Id) references Users(Id)
+);
+	

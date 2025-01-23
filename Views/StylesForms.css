@@ -1,0 +1,95 @@
+*{
+    padding: 0;
+    margin: 0;
+    color: black;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+body{
+    background-color: #8B6FF7;
+}
+.Content{
+    margin: 250px auto;
+    position: relative;
+    max-width: 700px;
+}
+.Container{
+    position: relative;
+    display: flex;
+    flex-flow: wrap row;
+    justify-content: center;
+    align-content: center;
+    margin: 200px auto;
+    border: 1px solid white;
+    max-width: 700px;
+    padding: 20px 0px;
+    background-color: white;
+    border-radius: 5px;
+}
+.Transitioner{
+    position: absolute;
+    top: 0%;
+    left: 50%;
+    backdrop-filter: blur(10px);
+    width: 50%;
+    height: 100%;
+    border-radius: 5px;
+    border-left: 1px solid #8B6FF7;
+    border-right: 1px solid #8B6FF7;
+    justify-content: center;
+    align-content: center;
+    padding: 20px;
+}
+.Sign-Container, .Login-Container{
+    width: 50%;
+    padding: 15px;
+}
+h1, h3{
+    text-align: center;
+}
+a{
+    text-decoration: none;
+    padding: 5px;
+    color: gray;
+}
+.Acess{
+    text-align: center;
+    margin-top: 20px;
+    width: 100%;
+}
+input{
+    border: 0px;
+    border-bottom: 1px solid gray;
+}
+button{
+    color: white;
+    background-color: #8B6FF7;
+    border: 1px solid white;
+    border-radius: 5px;
+}
+input, button{
+    width: 100%;
+    padding: 12px;
+    font-size: 15px;
+    outline: none;
+    margin: 10px 0px;
+}
+a:hover{
+    transition: 400ms;
+    cursor: pointer;
+    color: black;
+}
+button:hover{
+    transition: 400ms;
+    cursor: pointer;
+    filter: brightness(1.5);
+}
+.Alerts{
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    padding: 5px;
+    background-color: white;
+    border-radius: 10px;
+}
+
