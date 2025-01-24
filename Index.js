@@ -79,13 +79,20 @@ app.get('/Main', CheckAuth, (req, res) => {
 app.post('/ProcessarDados', async (req, res) => {
     const User = req.session.user;
     const {Descricao, Valor, Validador} = req.body;
+    console.log(Validador);
     if(Validador == 1){
         await CreateConta(parseFloat(Valor), Descricao, User.Id);
         const ContasAtualizado = await users.findOne({where: {Id: User.Id}});
         res.json({ValorAtualizado: ContasAtualizado.Contas});
     } else if(Validador == 2){
-        const Contas = await contas.findAll({where: {User_Id: User.Id}});
-        res.json({Contas: Contas});
+        let Contas = await contas.findAll({where: {User_Id: User.Id}});
+        let ListHTML = '';
+        Contas = Contas.map(Conta => Conta.dataValues);
+        for(let Conta of Contas){
+            console.log(Conta);
+            ListHTML += `<li>Id: ${Conta.Id} Valor: ${Conta.Valor} Descrição: ${Conta.Descricao}</li>`;
+        }
+        res.json({Contas: ListHTML});
     } else {
         if(await DeleteConta(User.Id, Descricao)){
             const ContasAtualizado = await users.findOne({where: {Id: User.Id}});

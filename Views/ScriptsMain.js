@@ -14,6 +14,7 @@ const Alertas = document.getElementById('Alerts');
 const AlertsContent = document.getElementById('Alerts-Content');
 const Total = document.getElementById('Total');
 const body = document.getElementById('body');
+const List = document.getElementById('List-Content');
 let Validador;
 
 
@@ -116,9 +117,30 @@ RemoveButton.addEventListener('click', () => {
     FadeInAnimation();
 });
 
-ListButton.addEventListener('click', () => {
+ListButton.addEventListener('click', async () => {
     setTimeout(ListAnimation, 500);
     FadeInAnimation()
+    setTimeout(async () => {
+        const FormData = {Validador: Validador};
+        console.log(FormData);
+        await fetch('http://127.0.0.1:3000/ProcessarDados', {
+            method: 'POST',
+            headers: {
+                'Content-type': 'application/json'
+            },
+            body: JSON.stringify(FormData)
+        })
+        .then(Response => Response.json())
+        .then(Response => {
+            if(Response.Contas){
+                List.innerHTML = Response.Contas;
+            } else {
+                List.innerHTML = 'Nenhuma conta encontrada!';
+            }
+        })
+    }, 500);
+    
+    
 });
 
 Form.addEventListener('submit', async (event) => {
@@ -137,17 +159,6 @@ Form.addEventListener('submit', async (event) => {
             FadeInAnimation();
             Total.innerHTML = `Total: ${Response.ValorAtualizado}`;
         });
-    } else if (Validador == 2){
-        const FormData = {Validador: Validador};
-        await fetch('http://127.0.0.1:3000/ProcessarDados', {
-            method: 'POST',
-            headers: {
-                'Content-type': 'application/json'
-            },
-            body: JSON.stringify(FormData)
-        })
-        .then(Response => Response.json())
-        .then()
     } else {
         const FormData = {Descricao: Descricao.value, Validador: Validador};
         await fetch('http://127.0.0.1:3000/ProcessarDados', {
@@ -167,5 +178,4 @@ Form.addEventListener('submit', async (event) => {
             }
         })
     }
-    
 });
